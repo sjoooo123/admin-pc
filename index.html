@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/admin-pc/favicon.ico"><title>pc端通用管理平台</title><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script>/*@cc_on window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); @*/</script><link href="/admin-pc/css/chunk-473603d0.f1952bee.css" rel="prefetch"><link href="/admin-pc/css/chunk-68faa293.12446843.css" rel="prefetch"><link href="/admin-pc/css/chunk-70c3a20a.eadc9f55.css" rel="prefetch"><link href="/admin-pc/css/chunk-abc6bbf0.d5259c26.css" rel="prefetch"><link href="/admin-pc/css/chunk-f32a6f1a.795e1044.css" rel="prefetch"><link href="/admin-pc/js/chunk-09045366.bd5c91ca.js" rel="prefetch"><link href="/admin-pc/js/chunk-2d0aba2f.5ccf5cb1.js" rel="prefetch"><link href="/admin-pc/js/chunk-2d0af0f8.f3a78549.js" rel="prefetch"><link href="/admin-pc/js/chunk-2d0bd7b2.51f97b4c.js" rel="prefetch"><link href="/admin-pc/js/chunk-2d0c5b28.1f8df043.js" rel="prefetch"><link href="/admin-pc/js/chunk-2d0d0093.7a27b6d4.js" rel="prefetch"><link href="/admin-pc/js/chunk-2d0d72b3.90acf30c.js" rel="prefetch"><link href="/admin-pc/js/chunk-473603d0.15b01e5d.js" rel="prefetch"><link href="/admin-pc/js/chunk-68faa293.8ed8d8fe.js" rel="prefetch"><link href="/admin-pc/js/chunk-70c3a20a.6c625d48.js" rel="prefetch"><link href="/admin-pc/js/chunk-abc6bbf0.48581bbc.js" rel="prefetch"><link href="/admin-pc/js/chunk-f32a6f1a.b78d82ed.js" rel="prefetch"><link href="/admin-pc/css/app.ea508c2e.css" rel="preload" as="style"><link href="/admin-pc/css/chunk-vendors.0b2079c7.css" rel="preload" as="style"><link href="/admin-pc/js/app.52e383d0.js" rel="preload" as="script"><link href="/admin-pc/js/chunk-vendors.e1652d65.js" rel="preload" as="script"><link href="/admin-pc/css/chunk-vendors.0b2079c7.css" rel="stylesheet"><link href="/admin-pc/css/app.ea508c2e.css" rel="stylesheet"></head><body><noscript><strong>对不起，您的浏览器不支持 javaScript 或浏览器已禁止执行JavaScript脚本，请打开浏览器执行 JavaScript脚本的权限或更换浏览器后访问。</strong></noscript><div id="app"></div><script>//内置对象扩展
+      //时间格式化
+      Date.prototype.format = function(format) {
+        var args = {
+          "M+": this.getMonth() + 1,
+          "d+": this.getDate(),
+          "h+": this.getHours(),
+          "m+": this.getMinutes(),
+          "s+": this.getSeconds(),
+          "q+": Math.floor((this.getMonth() + 3) / 3), //quarter
+          S: this.getMilliseconds()
+        };
+        if (/(y+)/.test(format))
+          format = format.replace(
+            RegExp.$1,
+            (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+          );
+        for (var i in args) {
+          var n = args[i];
+          if (new RegExp("(" + i + ")").test(format))
+            format = format.replace(
+              RegExp.$1,
+              RegExp.$1.length == 1 ? n : ("00" + n).substr(("" + n).length)
+            );
+        }
+        return format;
+      };
+      String.prototype.trim = function() {
+        return this.replace(/(^\s*)|(\s*$)/g, "");
+      };
+      Number.prototype.format = function() {
+        var num = this;
+        if (!/^(\+|-)?\d+(\.\d+)?$/.test(num)) {
+          return num;
+        }
+        // var re = new RegExp().compile("(\\d)(\\d{3})(,|\\.|$)");
+        var re = /(\d)(\d{3})(,|\.|$)/;
+        num += "";
+        while (re.test(num)) {
+          num = num.replace(re, "$1,$2$3");
+        }
+        return num;
+      };</script><script src="https://api.map.baidu.com/api?v=3.0&ak=UAumsTfvpKBlNPUd9e5PvAEnR0YGNllO"></script><script src="/admin-pc/js/chunk-vendors.e1652d65.js"></script><script src="/admin-pc/js/app.52e383d0.js"></script></body></html>
